@@ -16,7 +16,8 @@ public class MergeSort3 {
         }
         // 优化2: 对于小规模数组, 使用插入排序
         if (r - l <= 15) {
-            insertionSort(arr, l, r);
+            InsertionSort.insertionSort(arr, l, r);
+            return;
         }
 
         int mid = l + (r - l) / 2;
@@ -24,20 +25,6 @@ public class MergeSort3 {
         sort(arr, mid + 1, r);
         if (arr[mid] > arr[mid + 1]) {
             merge(arr, l, mid, r);
-        }
-    }
-
-    private static void insertionSort(int[] arr, int l, int r) {
-
-        for (int i = l + 1; i <= r; i++) {
-            int value = arr[i ];
-            int j = i ;
-            for (; j > l && value < arr[j - 1]; j--) {
-                arr[j] = arr[j - 1];
-            }
-            if (j != i ) {
-                arr[j] = value;
-            }
         }
     }
 
